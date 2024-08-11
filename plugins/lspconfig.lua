@@ -20,6 +20,7 @@ return {
 		local lsp = require('lspconfig')
 		lsp.lua_ls.setup {}
 		lsp.gopls.setup {}
+		lsp.rust_analyzer.setup {}
 		lsp.tsserver.setup {
 			root_dir = function(fname)
 				return require('lspconfig.util').root_pattern("package.json")(fname)
@@ -74,6 +75,22 @@ return {
 					},
 				},
 			},
+		}
+
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+		lsp.html.setup {
+			capabilities = capabilities,
+			filetypes = {
+				"html",
+				"templ",
+			},
+			configurationSection = { "html", "css", "javascript" },
+			embeddedLanguages = {
+				css = true,
+				javascript = true
+			},
+			provideFormatter = true,
 		}
 	end,
 }
