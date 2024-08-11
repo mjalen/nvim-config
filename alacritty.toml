@@ -1,0 +1,17 @@
+import = [
+	"~/.config/alacritty/everforest.toml",
+]
+
+[env]
+term = "xterm-256color"
+
+[window]
+padding = { x = 30, y = 30 }
+decorations = "Transparent"
+
+[font]
+size = 14
+normal = { family = "Victor Mono", style = "Medium" }
+bold = { family = "Victor Mono", style = "SemiBold" }
+italic = { family = "Victor Mono", style = "Medium Italic" }
+bold_italic = { family = "Victor Mono", style = "SemiBold Italic" }
